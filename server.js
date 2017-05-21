@@ -51,8 +51,9 @@ app.get('/api', function apiIndex(req, res) {
       {method: "GET", path: "/api/profile", description: "Data about me"},
       {method: "GET", path: "/api/vacations", description: "List of all vacations"},
       {method: "GET", path: "/api/vacations/:id", description: "Get vacations by ID"},
+      {method: "POST", path: "/api/vacations/", description: "Create a new vacation"},
       {method: "PUT", path: "/api/vacations/:id", description: "Update vacations by ID"},
-      {method: "DELETE", path: "/api/vacations/:id", description: "Delete vacation by ID"},
+      {method: "DELETE", path: "/api/vacations/:id", description: "Delete vacation by ID"}
     ]
   })
 });

@@ -36,29 +36,18 @@ $(document).ready(function(){
 
 });
 
-function deleteVacationSuccess(json) {
-  var vacation = json;
-  var vacationId = vacation._id;
-  for(var i = 0; i < allVacations.length; i++) {
-    console.log(allVacations.length)
-    if(allVacations[i]._id === vacationId) {
-      allVacations.splice(i, 1);
-      break;
-    }
-  }
-  render();
-}
+// functions below
 
-function deleteVacationError() {
-  console.log("vacation deleting error!");
-}
-
+// populate data
 function getVacationHtml(vacation) {
   return `<hr>
           <p>
             <b>${vacation.place}</b>
             in ${(vacation.date)}
-            <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id=${vacation._id}>Delete</button>
+            <div>
+              <img src="${vacation.photo}" alt="photo of ${vacation.place}" style="width:40%; height:40%;">
+              <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id=${vacation._id}>Delete</button>
+            </div>
           </p>`;
 }
 
@@ -91,4 +80,22 @@ function newVacationSuccess(json) {
 
 function newVacationError() {
   console.log("new vacation error!");
+}
+
+// delete vacation
+function deleteVacationSuccess(json) {
+  var vacation = json;
+  var vacationId = vacation._id;
+  for(var i = 0; i < allVacations.length; i++) {
+    console.log(allVacations.length)
+    if(allVacations[i]._id === vacationId) {
+      allVacations.splice(i, 1);
+      break;
+    }
+  }
+  render();
+}
+
+function deleteVacationError() {
+  console.log("vacation deleting error!");
 }
