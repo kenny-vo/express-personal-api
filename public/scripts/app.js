@@ -61,6 +61,34 @@ function render () {
   $vacationsList.append(vacationsHtml);
 };
 
+function newVacationSuccess(json) {
+  $('#newVacationForm input').val('');
+  allVacations.push(json);
+  render();
+}
+
+function newVacationError() {
+  console.log("new vacation error!");
+}
+
+// deleting vacations
+function deleteVacationSuccess(json) {
+  var vacation = json;
+  var vacationId = vacation._id;
+  for(var i = 0; i < allVacations.length; i++) {
+    console.log(allVacations.length)
+    if(allVacations[i]._id === vacationId) {
+      allVacations.splice(i, 1);
+      break;
+    }
+  }
+  render();
+}
+
+function deleteVacationError() {
+  console.log("vacation deleting error!");
+}
+
 
 function handleSuccess(json) {
   allVacations = json;
@@ -70,16 +98,6 @@ function handleSuccess(json) {
 function handleError(e) {
   console.log('uh oh');
   $('#vacationTarget').text('Failed to load vacations, is the server working?');
-}
-
-function newVacationSuccess(json) {
-  $('#newVacationForm input').val('');
-  allVacations.push(json);
-  render();
-}
-
-function newVacationError() {
-  console.log("new vacation error!");
 }
 
 // delete vacation
