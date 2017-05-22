@@ -58,20 +58,22 @@ app.get('/api', function apiIndex(req, res) {
   })
 });
 
-// get profile
+// show profile
 app.get('/api/profile', function (req, res) {
     var profile = {
       name: 'Kenny Vo',
       githubUsername: 'kenzovo',
       githubLink:'https://github.com/kenzovo',
       personalSiteLink: 'https://kenzovo.github.io/',
-      currentCity: 'Austin'
+      currentCity: 'Austin',
+      isHungry: true,
+      projects: ['tic tac toe', 'ajaxify reddit', 'geoquakes']
     };
       res.json(profile);
 
 });
 
-// get all vacations
+// show all vacations
 app.get('/api/vacations', function (req, res) {
   db.Vacation.find({})
     .exec(function(err, vacations){
