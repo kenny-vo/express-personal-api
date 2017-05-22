@@ -44,7 +44,7 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function apiIndex(req, res) {
   res.json({
     message: "Welcome to my personal api. Routes are below! Learn about my vacations :)",
-    documentationUrl: "https://github.com/example-username/express-personal-api/README.md",
+    documentationUrl: "https://github.com/kenzovo/express-personal-api/tree/master",
     baseUrl: "https://stark-wildwood-36615.herokuapp.com/",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
